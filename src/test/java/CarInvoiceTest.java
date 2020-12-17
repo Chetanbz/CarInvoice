@@ -31,7 +31,6 @@ public class CarInvoiceTest {
     }
     @Test
     public void givenMultipleRideShouldReturnInvoice(){
-        Invoice invoice  = new Invoice() ;
         Scanner sc = new Scanner(System.in);
         System.out.println("Give Total number rides");
         Invoice [] invoices = {new Invoice(2,5),new Invoice(0.1,1) };
@@ -42,6 +41,22 @@ public class CarInvoiceTest {
         }
             Assert.assertEquals(30, totalFare , 0.0);
             sc.close();
-
     }
+    @Test
+    public void givenMultipleRideShouldReturnInvoiceMultipleThing(){
+        Scanner sc = new Scanner(System.in);
+        Invoice [] invoices = {new Invoice(2,5),new Invoice(0.1,1) };
+        int totalRide = Invoice.count;
+        List inv = Arrays.asList(invoices);
+        double totalFare = 0.0;
+        for(Invoice i : invoices ){
+            totalFare += i.getfare();
+        }
+        double avgFare = totalFare/totalRide;
+        Assert.assertEquals(2,totalRide);
+        Assert.assertEquals(30, totalFare , 0.0);
+        Assert.assertEquals(15,avgFare,0.0);
+        sc.close();
+    }
+
 }

@@ -4,10 +4,12 @@ public class Invoice {
 
     private static final double MINIMUM_DISTANCE_PER_KM = 10;
     private double MINIMUM_PRICE_PER_time = 1;
+    static int count ;
 
     public Invoice(double distance, int time) {
         this.distance = distance;
         this.time = time;
+        count++;
     }
     public Invoice(){
 
